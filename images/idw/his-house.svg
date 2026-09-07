@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" role="img" aria-label="His House">
+  <rect width="1600" height="1200" fill="#e7e1d4"/>
+  <rect x="430" y="360" width="740" height="420" fill="#d4cdc0"/>
+  <polygon points="430,360 800,180 1170,360" fill="#c4bbab"/>
+  <rect x="760" y="560" width="80" height="220" fill="#b6ad9c"/>
+  <text x="800" y="920" text-anchor="middle" fill="#6d675c" font-family="Arial, Helvetica, sans-serif" font-size="36">His House</text>
+</svg>

@@ -23,7 +23,6 @@ if (!project || !root) {
     ["Location", project.location],
     ["Completed", project.completed || project.year],
     ["Client", project.client],
-    ["Contract value", project.contractValue],
   ].filter(([, value]) => value);
 
   const gallery = project.gallery.filter(Boolean);
@@ -48,7 +47,7 @@ if (!project || !root) {
       <img src="${project.hero}" alt="${escapeHtml(project.title)}">
       <div class="hero-scrim"></div>
       <div class="hero-copy">
-        <p class="eyebrow">${escapeHtml(project.category)} · ${escapeHtml(project.location)} · ${escapeHtml(project.year)}</p>
+        <p class="eyebrow">${escapeHtml([project.category, project.location, project.year].filter(Boolean).join(" · "))}</p>
         <h1>${escapeHtml(project.title)}</h1>
         <p class="lede">${escapeHtml(project.excerpt)}</p>
       </div>

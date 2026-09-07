@@ -11,8 +11,11 @@ const HEADER = `
       </button>
       <nav id="site-nav" class="site-nav" aria-label="Primary">
         <a href="index.html" data-nav="home">Home</a>
-        <a href="work.html" data-nav="work">Work</a>
+        <a href="work.html" data-nav="work">Projects</a>
         <a href="practice.html" data-nav="practice">Practice</a>
+        <a href="news.html" data-nav="news">News</a>
+        <a href="blog.html" data-nav="blog">Blog</a>
+        <a href="join.html" data-nav="join">Join</a>
         <a href="practice.html#contact" data-nav="contact">Contact</a>
       </nav>
     </div>
@@ -23,7 +26,7 @@ const FOOTER = `
   <footer class="site-footer">
     <div class="footer-grid">
       <div>
-        <p class="footer-blurb">iQhayiya Design Workshop is a professional architectural firm in Margate, focused on public-sector work. IQHAYIYA translates to pride in isiXhosa.</p>
+        <p class="footer-blurb">iQhayiya Design Workshop (PTY) Ltd. is a professional architectural firm in Margate. The studio works across South Africa for municipalities, government, private developers and home owners. IQHAYIYA translates to pride in isiXhosa.</p>
       </div>
       <div>
         <p class="eyebrow">Studio</p>
@@ -32,14 +35,18 @@ const FOOTER = `
       <div>
         <p class="eyebrow">Practice</p>
         <p><a href="tel:+27393120403">+27 (0) 39 312 0403</a><br>
+        <a href="https://wa.me/27737257297">WhatsApp 073 725 7297</a><br>
         <a href="mailto:adminkok@iqhayiyadw.co.za">adminkok@iqhayiyadw.co.za</a></p>
       </div>
       <div>
         <p class="eyebrow">Index</p>
         <p>
           <a href="index.html">Home</a><br>
-          <a href="work.html">Work</a><br>
+          <a href="work.html">Projects</a><br>
           <a href="practice.html">Practice</a><br>
+          <a href="news.html">News</a><br>
+          <a href="blog.html">Blog</a><br>
+          <a href="join.html">Join</a><br>
           <a href="practice.html#contact">Contact</a>
         </p>
       </div>
@@ -48,11 +55,20 @@ const FOOTER = `
   </footer>
 `;
 
+const WHATSAPP = `
+  <a class="wa-float" href="https://wa.me/27737257297" target="_blank" rel="noopener" aria-label="WhatsApp iQhayiya Design Workshop">
+    WhatsApp
+  </a>
+`;
+
 export function mountChrome(active = "") {
   const headerHost = document.getElementById("site-header");
   const footerHost = document.getElementById("site-footer");
   if (headerHost) headerHost.innerHTML = HEADER;
   if (footerHost) footerHost.innerHTML = FOOTER;
+  if (!document.querySelector(".wa-float")) {
+    document.body.insertAdjacentHTML("beforeend", WHATSAPP);
+  }
 
   document.querySelectorAll("[data-nav]").forEach((link) => {
     if (link.dataset.nav === active) {
@@ -71,15 +87,16 @@ export function mountChrome(active = "") {
   }
 }
 
-export function cardMarkup(project, { featured = false } = {}) {
+export function cardMarkup(project) {
   if (!project) return "";
   const href = `project.html?id=${encodeURIComponent(project.id)}`;
+  const meta = [project.category, project.year].filter(Boolean).join(" · ");
   return `
-    <a class="card${featured ? " card--featured" : ""}" href="${href}">
+    <a class="card" href="${href}">
       <div class="card-media">
         <img src="${project.hero}" alt="${escapeHtml(project.title)}">
       </div>
-      <p class="card-meta">${escapeHtml(project.category)} · ${escapeHtml(project.year)}</p>
+      <p class="card-meta">${escapeHtml(meta)}</p>
       <h3>${escapeHtml(project.title)}</h3>
       <p class="card-loc">${escapeHtml(project.location)}</p>
     </a>
