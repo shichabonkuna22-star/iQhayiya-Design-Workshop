@@ -35,5 +35,7 @@ if (carousel) {
   }
 
   show(0);
-  setInterval(() => show(index + 1), 6000);
+  if (slides.length > 1) {
+    setInterval(() => show(index + 1), 6000);
+  }
 }

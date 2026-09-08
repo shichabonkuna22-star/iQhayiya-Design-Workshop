@@ -165,6 +165,31 @@ h3 { font-size: clamp(1.6rem, 2.4vw, 2.1rem); margin: 0.2rem 0 0.5rem; }
 .hero .lede { color: var(--muted); text-shadow: none; }
 .hero h1 { color: var(--ink); text-shadow: none; }
 
+.home-hero {
+  color: var(--photo-type);
+  background: #1b1914;
+}
+.home-hero .hero-slide,
+.home-hero img {
+  object-fit: cover;
+}
+.home-hero .hero-scrim {
+  background: linear-gradient(to top, rgba(12, 10, 8, 0.28) 0%, rgba(12, 10, 8, 0.06) 38%, transparent 62%);
+}
+.home-hero .eyebrow,
+.home-hero .lede {
+  color: rgba(251, 249, 244, 0.92);
+  text-shadow: 0 1px 12px rgba(12, 10, 8, 0.35);
+}
+.home-hero h1 {
+  color: var(--photo-type);
+  text-shadow: 0 1px 16px rgba(12, 10, 8, 0.35);
+}
+.home-hero .hero-dots:empty,
+.home-hero .hero-dots:has(button:only-child) { display: none; }
+.home-hero .hero-dots button { background: rgba(251, 249, 244, 0.45); }
+.home-hero .hero-dots button[aria-current="true"] { background: #fbf9f4; }
+
 .project-hero { min-height: 78vh; }
 .project-hero .hero-copy { min-height: 78vh; padding-bottom: 3.4rem; }
 
