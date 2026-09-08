@@ -479,15 +479,23 @@ h3 { font-size: clamp(1.6rem, 2.4vw, 2.1rem); margin: 0.2rem 0 0.5rem; }
   right: 1.2rem;
   bottom: 1.2rem;
   z-index: 30;
-  background: #1b8c4a;
-  color: #fbf9f4;
-  padding: 0.7rem 1rem;
-  font-size: 0.92rem;
-  letter-spacing: 0;
-  text-transform: none;
-  box-shadow: 0 8px 24px rgba(12, 10, 8, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  padding: 0;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(12, 10, 8, 0.22);
 }
-.wa-float:hover { color: #fbf9f4; background: #167a40; }
+.wa-float svg {
+  width: 1.85rem;
+  height: 1.85rem;
+  display: block;
+}
+.wa-float:hover { color: #fff; background: #1ebe5d; }
 
 .site-footer {
   padding: 3.6rem var(--pad) 2.2rem;
