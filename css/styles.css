@@ -200,8 +200,34 @@ h3 { font-size: clamp(1.6rem, 2.4vw, 2.1rem); margin: 0.2rem 0 0.5rem; }
 .home-hero .hero-dots button { background: rgba(251, 249, 244, 0.45); }
 .home-hero .hero-dots button[aria-current="true"] { background: #fbf9f4; }
 
-.project-hero { min-height: 78vh; }
-.project-hero .hero-copy { min-height: 78vh; padding-bottom: 3.4rem; }
+.project-hero {
+  width: 100%;
+  min-height: 72vh;
+  background: #1b1914;
+}
+.hero.project-hero > img {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+.project-hero .hero-copy {
+  min-height: 72vh;
+  padding-bottom: 3.4rem;
+}
+.project-hero .eyebrow,
+.project-hero .lede {
+  color: rgba(251, 249, 244, 0.92);
+  text-shadow: 0 1px 12px rgba(12, 10, 8, 0.35);
+}
+.project-hero h1 {
+  color: var(--photo-type);
+  text-shadow: 0 1px 16px rgba(12, 10, 8, 0.35);
+}
+.project-hero .hero-scrim {
+  background: linear-gradient(to top, rgba(12, 10, 8, 0.55) 0%, rgba(12, 10, 8, 0.12) 42%, transparent 68%);
+}
 
 /* Sections */
 .selected,
