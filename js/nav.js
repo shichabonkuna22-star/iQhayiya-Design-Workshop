@@ -94,15 +94,15 @@ export function mountChrome(active = "") {
 export function cardMarkup(project) {
   if (!project) return "";
   const href = `project.html?id=${encodeURIComponent(project.id)}`;
-  const meta = [project.category, project.year].filter(Boolean).join(" · ");
+  const photo = project.hero || project.gallery?.[0] || "";
   return `
     <a class="card" href="${href}">
-      <div class="card-media">
-        <img src="${project.hero}" alt="${escapeHtml(project.title)}">
-      </div>
-      <p class="card-meta">${escapeHtml(meta)}</p>
       <h3>${escapeHtml(project.title)}</h3>
-      <p class="card-loc">${escapeHtml(project.location)}</p>
+      <div class="card-media card-media-fill">
+        <img src="${photo}" alt="${escapeHtml(project.title)}">
+      </div>
+      <p class="card-meta">${escapeHtml(project.category || "")}</p>
+      <p class="card-loc">${escapeHtml(project.location || "")}</p>
     </a>
   `;
 }
