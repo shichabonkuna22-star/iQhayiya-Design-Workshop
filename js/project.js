@@ -20,10 +20,19 @@ if (!project || !root) {
 } else {
   document.title = `${project.title} — iQhayiya Design Workshop`;
 
-  const details = [`Project name: ${project.title}`];
-  if (project.location) details.push(`Location ${project.location}`);
-  const completed = project.completed || project.year;
-  if (completed) details.push(`Completed ${completed}`);
+  const parts = [
+    ["Project name", project.title],
+    project.location ? ["Location", project.location] : null,
+    (project.completed || project.year)
+      ? ["Completed", project.completed || project.year]
+      : null,
+  ].filter(Boolean);
+  const detailsHtml = parts
+    .map(
+      ([label, value], index) =>
+        `${index ? '<span class="meta-sep">|</span>' : ""}<span class="meta-label">${escapeHtml(label)}</span> <span class="meta-value">${escapeHtml(value)}</span>`
+    )
+    .join("");
 
   const gallery = project.gallery.filter((src) => src && src !== project.hero);
   const galleryHtml = gallery.length
@@ -54,7 +63,7 @@ if (!project || !root) {
     </section>
 
     <section class="project-intro">
-      <p class="project-copy">${escapeHtml(details.join(" | "))}</p>
+      <p class="project-copy">${detailsHtml}</p>
     </section>
 
     ${galleryHtml}
