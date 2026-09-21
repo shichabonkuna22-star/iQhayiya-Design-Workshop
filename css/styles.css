@@ -214,19 +214,15 @@ main {
   max-height: 50vh;
   overflow: hidden;
   background: #1b1914;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .hero.project-hero > img {
-  position: relative;
-  inset: auto;
+  position: absolute;
+  inset: 0;
   display: block;
-  width: auto;
-  max-width: 100%;
+  width: 100%;
+  max-width: none;
   height: 100%;
-  max-height: 50vh;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center center;
 }
 body:has(.project-hero) .site-header {
