@@ -8,8 +8,12 @@ export const projects = [
     location: "uMzimkhulu",
     client: "uMzimkhulu Memorial Hall",
     excerpt: "Community hall in uMzimkhulu, KwaZulu-Natal.",
-    hero: "images/idw/umzimkhulu-map.png",
-    gallery: ["images/idw/umzimkhulu-map.png", "images/idw/umzimkhulu.jpg"],
+    hero: "images/idw/umzimkhulu-street.jpg",
+    gallery: [
+      "images/idw/umzimkhulu-street.jpg",
+      "images/idw/umzimkhulu-map.png",
+      "images/idw/umzimkhulu.jpg",
+    ],
     related: ["anglican-union", "kokstad-project"],
     paragraphs: [
       "Project name: uMzimkhulu Memorial Hall. Location: uMzimkhulu.",
