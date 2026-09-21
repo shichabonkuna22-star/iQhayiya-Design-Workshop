@@ -209,21 +209,28 @@ main {
 .hero.project-hero {
   width: 100%;
   margin: 0;
-  min-height: 72vh;
+  min-height: 0;
+  height: auto;
+  overflow: hidden;
   background: #1b1914;
 }
 .hero.project-hero > img {
-  inset: 0;
+  position: relative;
+  inset: auto;
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  max-width: none;
+  height: auto;
+  object-fit: unset;
+  object-position: center center;
 }
 body:has(.project-hero) .site-header {
   border-bottom: 0;
 }
 .project-hero .hero-copy {
-  min-height: 72vh;
+  position: absolute;
+  inset: 0;
+  min-height: 0;
   padding-bottom: 3.4rem;
 }
 .project-hero .eyebrow,
