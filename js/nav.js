@@ -2,11 +2,13 @@ const HEADER = `
   <header class="site-header">
     <div class="bar">
       <a class="wordmark" href="index.html" aria-label="iQhayiya Design Workshop home">
-        <span class="wordmark-name">iQhayiya</span>
-        <span class="wordmark-sub">Design Workshop</span>
+        <img class="wordmark-logo" src="images/logo.png" alt="">
+        <span class="wordmark-text">
+          <span class="wordmark-name">iQhayiya</span>
+          <span class="wordmark-sub">Design Workshop</span>
+        </span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span></span><span></span>
         Menu
       </button>
       <nav id="site-nav" class="site-nav" aria-label="Primary">
