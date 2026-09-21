@@ -30,7 +30,7 @@ if (!project || !root) {
   const detailsHtml = parts
     .map(
       ([label, value], index) =>
-        `${index ? '<span class="meta-sep">|</span>' : ""}<span class="meta-label">${escapeHtml(label)}</span> <span class="meta-value">${escapeHtml(value)}</span>`
+        `${index ? '<span class="meta-sep">|</span>' : ""}<span class="meta-label">${escapeHtml(label)}:</span> <span class="meta-value">${escapeHtml(value)}</span>`
     )
     .join("");
 

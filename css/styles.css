@@ -389,14 +389,16 @@ body:has(.project-hero) .site-header {
   line-height: 1.7;
 }
 .project-copy .meta-label {
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-size: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+  font-style: normal;
   font-weight: 400;
-  color: var(--muted);
+  color: var(--ink);
 }
 .project-copy .meta-value {
-  font-weight: 500;
+  font-style: italic;
+  font-weight: 400;
   color: var(--ink);
 }
 .project-copy .meta-sep {
