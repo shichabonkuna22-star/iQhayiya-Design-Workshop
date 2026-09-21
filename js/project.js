@@ -1,5 +1,5 @@
-import { mountChrome, cardMarkup, escapeHtml } from "./nav.js";
-import { getProject, getRelated } from "./projects.js?v=meet11";
+import { mountChrome, escapeHtml } from "./nav.js";
+import { getProject } from "./projects.js?v=meet12";
 
 mountChrome("work");
 
@@ -19,26 +19,26 @@ if (!project || !root) {
   }
 } else {
   document.title = `${project.title} — iQhayiya Design Workshop`;
-  const facts = [
-    ["Location", project.location],
-    ["Completed", project.completed || project.year],
-    ["Client", project.client],
-  ].filter(([, value]) => value);
 
-  const gallery = project.gallery.filter(Boolean);
+  const details = [`Project name: ${project.title}`];
+  if (project.location) details.push(`Location ${project.location}`);
+  const completed = project.completed || project.year;
+  if (completed) details.push(`Completed ${completed}`);
+
+  const gallery = project.gallery.filter((src) => src && src !== project.hero);
   const galleryHtml = gallery.length
     ? `<section class="gallery">
-      <img class="gallery-lead" src="${gallery[0]}" alt="${escapeHtml(project.title)}">
-      ${
-        gallery.length > 1
-          ? `<div class="gallery-pair">
+      <p class="eyebrow">Images</p>
+      <div class="gallery-grid">
         ${gallery
-          .slice(1, 3)
-          .map((src) => `<img src="${src}" alt="${escapeHtml(project.title)}">`)
+          .map(
+            (src, index) => `
+          <figure class="gallery-item${index === 0 ? " gallery-item-lead" : ""}">
+            <img src="${src}" alt="${escapeHtml(project.title)}">
+          </figure>`
+          )
           .join("")}
-      </div>`
-          : ""
-      }
+      </div>
     </section>`
     : "";
 
@@ -54,28 +54,13 @@ if (!project || !root) {
     </section>
 
     <section class="project-intro">
-      <div class="project-copy">
-        ${project.paragraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
-      </div>
-      <dl class="facts">
-        ${facts
-          .map(
-            ([label, value]) =>
-              `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`
-          )
-          .join("")}
-      </dl>
+      <p class="project-copy">${escapeHtml(details.join(" | "))}</p>
     </section>
 
     ${galleryHtml}
 
-    <section class="further">
-      <p class="eyebrow">Further work</p>
-      <div class="further-grid">
-        ${getRelated(project)
-          .map((item) => cardMarkup(item))
-          .join("")}
-      </div>
+    <section class="more-projects">
+      <a class="more-projects-btn" href="work.html">More Projects</a>
     </section>
   `;
 }
