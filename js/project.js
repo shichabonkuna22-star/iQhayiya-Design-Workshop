@@ -1,5 +1,5 @@
 import { mountChrome, escapeHtml } from "./nav.js";
-import { getProject } from "./projects.js?v=meet12";
+import { getProject } from "./projects.js?v=meet39";
 
 mountChrome("work");
 
@@ -34,15 +34,14 @@ if (!project || !root) {
     )
     .join("");
 
-  const gallery = project.gallery.filter((src) => src && src !== project.hero);
+  const gallery = (project.gallery || []).filter(Boolean);
   const galleryHtml = gallery.length
     ? `<section class="gallery">
-      <p class="eyebrow">Images</p>
       <div class="gallery-grid">
         ${gallery
           .map(
-            (src, index) => `
-          <figure class="gallery-item${index === 0 ? " gallery-item-lead" : ""}">
+            (src) => `
+          <figure class="gallery-item">
             <img src="${src}" alt="${escapeHtml(project.title)}">
           </figure>`
           )
