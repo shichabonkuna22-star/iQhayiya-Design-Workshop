@@ -373,9 +373,10 @@ body:has(.project-hero) .site-header {
 
 .project-intro {
   padding: 4.5rem var(--pad) 3rem;
+  text-align: center;
 }
 .project-copy {
-  margin: 0;
+  margin: 0 auto;
   max-width: 52rem;
   color: var(--ink);
 }
