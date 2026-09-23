@@ -70,7 +70,16 @@ export const projects = [
     excerpt:
       "Anglican Mothers’ Union Centre for the Diocese of Umzimvubu, Kokstad. Pro bono.",
     hero: "images/idw/anglican-union-render.jpg",
-    gallery: ["images/idw/anglican-union-render.jpg"],
+    gallery: [
+      "images/idw/anglican-section.jpg",
+      "images/idw/anglican-concept-sketch.jpg",
+      "images/idw/anglican-floor-plan.jpg",
+      "images/idw/anglican-section-detail.jpg",
+      "images/idw/anglican-exterior-1.jpg",
+      "images/idw/anglican-exterior-2.jpg",
+      "images/idw/anglican-exterior-3.jpg",
+      "images/idw/anglican-exterior-4.jpg",
+    ],
     related: ["umzimkhulu-memorial-hall", "house-qwalela"],
     paragraphs: [
       "Project name: Anglican Mothers’ Union Centre. Client: Diocese of Umzimvubu. Location: Kokstad.",
