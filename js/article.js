@@ -1,5 +1,5 @@
 import { mountChrome, escapeHtml } from "./nav.js?v=meet46";
-import { getArticle } from "./articles.js?v=meet50";
+import { getArticle } from "./articles.js?v=meet52";
 
 mountChrome("news");
 
@@ -20,27 +20,22 @@ if (!article || !root) {
 } else {
   document.title = `${article.title} — iQhayiya Design Workshop`;
 
-  const quoteHtml = article.pullQuote
-    ? `<blockquote class="article-pull"><p>${escapeHtml(article.pullQuote)}</p></blockquote>`
-    : "";
+  const paragraphs = article.paragraphs || [];
+  const bodyHtml = paragraphs
+    .map((paragraph, index) => {
+      const quote =
+        index === 0 && article.pullQuote
+          ? `<blockquote class="article-pull"><p>${escapeHtml(article.pullQuote)}</p></blockquote>`
+          : "";
+      const cls = index === 0 ? ' class="article-lead-p"' : "";
+      return `<p${cls}>${escapeHtml(paragraph)}</p>${quote}`;
+    })
+    .join("");
 
   const linkHtml =
     article.sourceHref && article.sourceLinkLabel
       ? ` <a href="${escapeHtml(article.sourceHref)}" target="_blank" rel="noopener">${escapeHtml(article.sourceLinkLabel)}</a>`
       : "";
-
-  const mid = Math.max(1, Math.ceil((article.paragraphs || []).length / 2));
-  const first = (article.paragraphs || [])
-    .slice(0, mid)
-    .map((paragraph, index) => {
-      const cls = index === 0 ? ' class="article-lead-p"' : "";
-      return `<p${cls}>${escapeHtml(paragraph)}</p>`;
-    })
-    .join("");
-  const rest = (article.paragraphs || [])
-    .slice(mid)
-    .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
-    .join("");
 
   root.innerHTML = `
     <article class="article-page">
@@ -57,18 +52,16 @@ if (!article || !root) {
         </p>
       </header>
 
-      <div class="article-body">
-        ${first}
-        ${quoteHtml}
-        ${rest}
+      <div class="article-spread">
+        <div class="article-body">
+          ${bodyHtml}
+          <p class="news-source">${escapeHtml(article.source || "")}${linkHtml}</p>
+        </div>
+        <figure class="news-clip article-clip" data-lightbox>
+          <img src="${article.image}" alt="${escapeHtml(article.imageAlt || article.title)}">
+          <figcaption>${escapeHtml(article.caption || "Original page")} · Click to enlarge</figcaption>
+        </figure>
       </div>
-
-      <figure class="news-clip article-clip" data-lightbox>
-        <img src="${article.image}" alt="${escapeHtml(article.imageAlt || article.title)}">
-        <figcaption>${escapeHtml(article.caption || "Original page")} · Click to enlarge</figcaption>
-      </figure>
-
-      <p class="news-source">${escapeHtml(article.source || "")}${linkHtml}</p>
     </article>
 
     <section class="more-projects">

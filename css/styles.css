@@ -518,26 +518,26 @@ body:has(.project-hero) .site-header {
 .news-clip-portrait img { max-height: 34rem; }
 
 .article-page {
-  padding: 4.5rem var(--pad) 0;
-  margin: 0 auto;
-  max-width: 42rem;
+  padding: 3.6rem var(--pad) 0;
+  margin: 0;
+  max-width: none;
 }
 .article-head {
   padding: 0 0 2rem;
-  margin: 0;
+  margin: 0 0 2.4rem;
   border-bottom: 1px solid var(--ink);
 }
 .article-head h1 {
-  max-width: 18ch;
+  max-width: 28ch;
   margin: 0 0 1rem;
-  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
 }
 .article-standfirst {
   margin: 0 0 1.3rem;
-  font-size: 1.12rem;
+  font-size: 1.18rem;
   line-height: 1.55;
   color: var(--ink);
-  max-width: 38rem;
+  max-width: 52rem;
 }
 .article-byline {
   margin: 0;
@@ -548,20 +548,26 @@ body:has(.project-hero) .site-header {
   margin: 0 0.55rem;
   color: var(--hair);
 }
+.article-spread {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.85fr);
+  gap: 3rem 3.5rem;
+  align-items: start;
+}
 .article-body {
-  padding: 2.2rem 0 0.4rem;
+  padding: 0;
   margin: 0;
-  max-width: 40rem;
+  max-width: none;
 }
 .article-body p {
   max-width: none;
   margin: 0 0 1.15rem;
   color: var(--ink);
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   line-height: 1.72;
 }
 .article-lead-p {
-  font-size: 1.12rem;
+  font-size: 1.16rem;
 }
 .article-pull {
   margin: 1.6rem 0 1.8rem;
@@ -576,11 +582,16 @@ body:has(.project-hero) .site-header {
   color: var(--ink);
 }
 .article-page .article-clip {
-  max-width: 36rem;
-  margin: 2.2rem 0 0;
+  max-width: none;
+  margin: 0;
+  position: sticky;
+  top: calc(var(--header-h) + 1rem);
+}
+.article-page .article-clip img {
+  max-height: min(82vh, 56rem);
 }
 .article-page .news-source {
-  margin: 1.2rem 0 0;
+  margin: 1.6rem 0 0;
 }
 
 .filters {
@@ -890,7 +901,8 @@ body:has(.project-hero) .site-header {
   .further-grid,
   .footer-grid,
   .news-lead,
-  .news-index-grid { grid-template-columns: 1fr; }
+  .news-index-grid,
+  .article-spread { grid-template-columns: 1fr; }
   .archive-grid { grid-template-columns: 1fr 1fr; }
   #news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .section-head { flex-direction: column; align-items: flex-start; }
@@ -898,6 +910,10 @@ body:has(.project-hero) .site-header {
   .news-clip-wide img,
   .news-clip-portrait img { max-height: none; }
   .article-clip { max-width: none; }
+  .article-page .article-clip {
+    position: static;
+  }
+  .article-page .article-clip img { max-height: none; }
 }
 
 @media (max-width: 720px) {
