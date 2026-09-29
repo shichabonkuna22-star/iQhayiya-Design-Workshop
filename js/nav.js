@@ -90,7 +90,7 @@ export function mountChrome(active = "") {
 export function cardMarkup(project) {
   if (!project) return "";
   const href = `project.html?id=${encodeURIComponent(project.id)}`;
-  const photo = project.card || project.hero || project.gallery?.[0] || "";
+  const photo = project.hero || project.gallery?.[0] || "";
   return `
     <a class="card" href="${href}">
       <h3>${escapeHtml(project.title)}</h3>

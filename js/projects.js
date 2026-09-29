@@ -33,8 +33,7 @@ export const projects = [
     location: "Matatiele",
     client: "",
     excerpt: "Social Development offices in Matatiele.",
-    hero: "images/idw/matatiele-area-office.jpg",
-    card: "images/idw/matatiele-exterior-render.jpg",
+    hero: "images/idw/matatiele-exterior-render.jpg",
     gallery: [
       "images/idw/matatiele-concept-sketch.jpg",
       "images/idw/matatiele-model.jpg",
