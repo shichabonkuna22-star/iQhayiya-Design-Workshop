@@ -1,4 +1,4 @@
-import { mountChrome } from "./nav.js";
+import { mountChrome } from "./nav.js?v=meet32";
 
 mountChrome("practice");
 

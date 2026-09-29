@@ -1,4 +1,4 @@
-import { mountChrome, escapeHtml } from "./nav.js";
+import { mountChrome, escapeHtml } from "./nav.js?v=meet40";
 import { getProject } from "./projects.js?v=meet43";
 
 mountChrome("work");
@@ -71,4 +71,43 @@ if (!project || !root) {
       <a class="more-projects-btn" href="work.html">More Projects</a>
     </section>
   `;
+
+  bindLightbox(root, project.title);
 }
+
+function bindLightbox(root, title) {
+  let box = document.querySelector(".lightbox");
+  if (!box) {
+    box = document.createElement("div");
+    box.className = "lightbox";
+    box.hidden = true;
+    box.innerHTML = `<img alt="">`;
+    document.body.appendChild(box);
+  }
+  const large = box.querySelector("img");
+
+  const close = () => {
+    box.hidden = true;
+    large.removeAttribute("src");
+    document.body.style.overflow = "";
+  };
+
+  root.querySelectorAll(".gallery-item img").forEach((img) => {
+    img.addEventListener("click", () => {
+      large.src = img.currentSrc || img.src;
+      large.alt = img.alt || title;
+      box.hidden = false;
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  box.addEventListener("click", (event) => {
+    if (event.target === large) return;
+    close();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !box.hidden) close();
+  });
+}
+
