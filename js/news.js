@@ -1,5 +1,5 @@
 import { mountChrome, escapeHtml } from "./nav.js?v=meet46";
-import { articles } from "./articles.js?v=meet48";
+import { articles } from "./articles.js?v=meet50";
 
 mountChrome("news");
 
@@ -17,7 +17,7 @@ function newsCardMarkup(article) {
         <img src="${article.image}" alt="${escapeHtml(article.title)}">
       </div>
       <p class="card-meta">${escapeHtml(article.category || "")}</p>
-      <p class="card-loc">${escapeHtml(article.dateline || "")}</p>
+      <p class="card-loc">${escapeHtml([article.publication, article.dateline].filter(Boolean).join(" · "))}</p>
     </a>
   `;
 }

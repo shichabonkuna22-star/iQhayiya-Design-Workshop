@@ -1,5 +1,5 @@
 import { mountChrome, escapeHtml } from "./nav.js?v=meet46";
-import { getArticle } from "./articles.js?v=meet48";
+import { getArticle } from "./articles.js?v=meet50";
 
 mountChrome("news");
 
@@ -20,49 +20,56 @@ if (!article || !root) {
 } else {
   document.title = `${article.title} — iQhayiya Design Workshop`;
 
-  const parts = [
-    ["Story", article.title],
-    article.category ? ["Section", article.category] : null,
-    article.dateline ? ["Published", article.dateline] : null,
-  ].filter(Boolean);
-  const detailsHtml = parts
-    .map(
-      ([label, value], index) =>
-        `${index ? '<span class="meta-sep">|</span>' : ""}<span class="meta-label">${escapeHtml(label)}:</span> <span class="meta-value">${escapeHtml(value)}</span>`
-    )
-    .join("");
-
-  const bodyHtml = (article.paragraphs || [])
-    .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
-    .join("");
+  const quoteHtml = article.pullQuote
+    ? `<blockquote class="article-pull"><p>${escapeHtml(article.pullQuote)}</p></blockquote>`
+    : "";
 
   const linkHtml =
     article.sourceHref && article.sourceLinkLabel
       ? ` <a href="${escapeHtml(article.sourceHref)}" target="_blank" rel="noopener">${escapeHtml(article.sourceLinkLabel)}</a>`
       : "";
 
+  const mid = Math.max(1, Math.ceil((article.paragraphs || []).length / 2));
+  const first = (article.paragraphs || [])
+    .slice(0, mid)
+    .map((paragraph, index) => {
+      const cls = index === 0 ? ' class="article-lead-p"' : "";
+      return `<p${cls}>${escapeHtml(paragraph)}</p>`;
+    })
+    .join("");
+  const rest = (article.paragraphs || [])
+    .slice(mid)
+    .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
+    .join("");
+
   root.innerHTML = `
-    <section class="page-hero article-head">
-      <p class="news-kicker">${escapeHtml(article.category)}</p>
-      <h1>${escapeHtml(article.title)}.</h1>
-      <p class="news-byline">${escapeHtml(article.byline || "")}</p>
-    </section>
+    <article class="article-page">
+      <header class="article-head">
+        <p class="news-kicker">${escapeHtml(article.category)}</p>
+        <h1>${escapeHtml(article.title)}</h1>
+        <p class="article-standfirst">${escapeHtml(article.standfirst || "")}</p>
+        <p class="article-byline">
+          <span>${escapeHtml(article.byline || "")}</span>
+          <span class="meta-sep">|</span>
+          <span>${escapeHtml(article.publication || "")}</span>
+          <span class="meta-sep">|</span>
+          <span>${escapeHtml(article.dateline || "")}</span>
+        </p>
+      </header>
 
-    <section class="project-intro">
-      <p class="project-copy">${detailsHtml}</p>
-    </section>
+      <div class="article-body">
+        ${first}
+        ${quoteHtml}
+        ${rest}
+      </div>
 
-    <section class="article-clip-wrap">
       <figure class="news-clip article-clip" data-lightbox>
         <img src="${article.image}" alt="${escapeHtml(article.imageAlt || article.title)}">
-        <figcaption>Click to enlarge · ${escapeHtml(article.caption || "")}</figcaption>
+        <figcaption>${escapeHtml(article.caption || "Original page")} · Click to enlarge</figcaption>
       </figure>
-    </section>
 
-    <section class="article-body news-body">
-      ${bodyHtml}
       <p class="news-source">${escapeHtml(article.source || "")}${linkHtml}</p>
-    </section>
+    </article>
 
     <section class="more-projects">
       <a class="more-projects-btn" href="news.html">More News</a>
