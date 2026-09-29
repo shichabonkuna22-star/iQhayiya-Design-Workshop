@@ -16,7 +16,6 @@ const HEADER = `
         <a href="work.html" data-nav="work">Projects</a>
         <a href="practice.html" data-nav="practice">Practice</a>
         <a href="news.html" data-nav="news">News</a>
-        <a href="blog.html" data-nav="blog">Blog</a>
         <a href="join.html" data-nav="join">Join</a>
         <a href="practice.html#contact" data-nav="contact">Contact</a>
       </nav>
@@ -47,7 +46,6 @@ const FOOTER = `
           <a href="work.html">Projects</a><br>
           <a href="practice.html">Practice</a><br>
           <a href="news.html">News</a><br>
-          <a href="blog.html">Blog</a><br>
           <a href="join.html">Join</a><br>
           <a href="practice.html#contact">Contact</a>
         </p>
