@@ -1,4 +1,4 @@
-import { mountChrome } from "./nav.js?v=meet55";
+import { mountChrome } from "./nav.js?v=meet60";
 
 const page = document.body.dataset.nav || "";
 mountChrome(page);

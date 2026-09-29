@@ -1,4 +1,4 @@
-import { mountChrome, cardMarkup } from "./nav.js?v=meet58";
+import { mountChrome, cardMarkup } from "./nav.js?v=meet60";
 import { projects } from "./projects.js?v=meet59";
 
 mountChrome("work");
