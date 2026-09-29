@@ -1,5 +1,5 @@
 import { mountChrome, escapeHtml } from "./nav.js?v=meet60";
-import { getProject } from "./projects.js?v=meet62";
+import { getProject } from "./projects.js?v=meet66";
 
 mountChrome("work");
 
@@ -41,7 +41,7 @@ if (!project || !root) {
         ${gallery
           .map(
             (src) => `
-          <figure class="gallery-item">
+          <figure class="gallery-item${src.includes("location-map") ? " gallery-item-map" : ""}">
             <img src="${src}" alt="${escapeHtml(project.title)}">
           </figure>`
           )

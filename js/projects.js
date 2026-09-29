@@ -10,6 +10,7 @@ export const projects = [
     excerpt: "Community hall in uMzimkhulu, KwaZulu-Natal.",
     hero: "images/idw/umzimkhulu-colour-render.jpg",
     gallery: [
+      "images/idw/umzimkhulu-location-map.jpg",
       "images/idw/umzimkhulu-line-drawing.jpg",
       "images/idw/umzimkhulu-interior-drawing.jpg",
       "images/idw/umzimkhulu-axon-view.jpg",
@@ -35,6 +36,7 @@ export const projects = [
     excerpt: "Social Development offices in Matatiele.",
     hero: "images/idw/matatiele-exterior-render.jpg",
     gallery: [
+      "images/idw/matatiele-location-map.jpg",
       "images/idw/matatiele-concept-sketch.jpg",
       "images/idw/matatiele-model.jpg",
       "images/idw/matatiele-waiting.jpg",
@@ -56,11 +58,12 @@ export const projects = [
     category: "Residential",
     year: "",
     completed: "",
-    location: "South Africa",
+    location: "Flagstaff, Eastern Cape",
     client: "",
-    excerpt: "House Qwalela, a residential project by iQhayiya Design Workshop.",
+    excerpt: "House Qwalela, homestead at Flagstaff, Eastern Cape.",
     hero: "images/idw/house-qwalela-site.jpg",
     gallery: [
+      "images/idw/house-qwalela-location-map.jpg",
       "images/idw/house-qwalela-sketch.jpg",
       "images/idw/house-qwalela-drawing.jpg",
       "images/idw/house-qwalela-colonnade.jpg",
@@ -71,7 +74,7 @@ export const projects = [
       "images/idw/house-qwalela-site.jpg",
     ],
     related: ["matatiele-social-development", "anglican-union"],
-    paragraphs: ["Project name: House Qwalela."],
+    paragraphs: ["Project name: House Qwalela. Location: Flagstaff, Eastern Cape."],
   },
   {
     id: "anglican-union",
@@ -85,6 +88,7 @@ export const projects = [
       "Anglican Mothers’ Union Centre for the Diocese of Umzimvubu, Kokstad. Pro bono.",
     hero: "images/idw/anglican-union-render.jpg",
     gallery: [
+      "images/idw/anglican-location-map.jpg",
       "images/idw/anglican-section.jpg",
       "images/idw/anglican-concept-sketch.jpg",
       "images/idw/anglican-floor-plan.jpg",

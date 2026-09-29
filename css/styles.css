@@ -679,6 +679,13 @@ body:has(.project-hero) .site-header {
   object-fit: cover;
   object-position: center;
 }
+.gallery-item-map {
+  background: #fff;
+}
+.gallery-item-map img {
+  object-fit: contain;
+  padding: 0.55rem;
+}
 .lightbox {
   position: fixed;
   inset: 0;
