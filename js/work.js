@@ -1,5 +1,5 @@
 import { mountChrome, cardMarkup } from "./nav.js";
-import { projects } from "./projects.js?v=meet11";
+import { projects } from "./projects.js?v=meet43";
 
 mountChrome("work");
 
