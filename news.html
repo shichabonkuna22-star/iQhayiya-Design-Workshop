@@ -4,20 +4,28 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>News — iQhayiya Design Workshop</title>
-  <meta name="description" content="News from iQhayiya Design Workshop.">
+  <meta name="description" content="Press, awards and studio records from iQhayiya Design Workshop.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="css/styles.css?v=meet45">
+  <link rel="stylesheet" href="css/styles.css?v=meet48">
 </head>
-<body data-nav="news">
+<body>
   <div id="site-header"></div>
   <main>
-    <section class="page-hero">
-      <p class="eyebrow">Studio</p>
+    <section class="page-hero news-masthead">
+      <p class="eyebrow">Press · Awards · Studio</p>
       <h1>News.</h1>
-      <p class="lede">Studio news will be posted here. The site is kept up to date by the developer.</p>
+      <p class="lede">Records of the practice in print. Open a story to read the full article.</p>
     </section>
+    <div class="filters" role="group" aria-label="Filter news">
+      <button type="button" data-filter="All" aria-pressed="true">All</button>
+      <button type="button" data-filter="Awards">Awards</button>
+      <button type="button" data-filter="Press">Press</button>
+      <button type="button" data-filter="Studio">Studio</button>
+    </div>
+    <div class="archive-grid" id="news-grid"></div>
+    <p class="empty" id="news-empty" hidden>No stories in this set.</p>
   </main>
   <div id="site-footer"></div>
-  <script type="module" src="js/page.js?v=meet46"></script>
+  <script type="module" src="js/news.js?v=meet48"></script>
 </body>
 </html>
