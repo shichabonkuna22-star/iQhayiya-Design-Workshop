@@ -37,13 +37,13 @@ export const projects = [
     gallery: [
       "images/idw/matatiele-concept-sketch.jpg",
       "images/idw/matatiele-model.jpg",
+      "images/idw/matatiele-waiting.jpg",
+      "images/idw/matatiele-area-office.jpg",
       "images/idw/matatiele-exterior-render.jpg",
       "images/idw/matatiele-courtyard-render.jpg",
+      "images/idw/matatiele-corridor.jpg",
       "images/idw/matatiele-interior-render.jpg",
       "images/idw/matatiele-works.jpg",
-      "images/idw/matatiele-area-office.jpg",
-      "images/idw/matatiele-waiting.jpg",
-      "images/idw/matatiele-corridor.jpg",
     ],
     related: ["umzimkhulu-memorial-hall", "anglican-union"],
     paragraphs: [
