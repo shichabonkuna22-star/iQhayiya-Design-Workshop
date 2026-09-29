@@ -11,7 +11,7 @@ function newsCardMarkup(article) {
   if (!article) return "";
   const href = `article.html?id=${encodeURIComponent(article.id)}`;
   return `
-    <a class="card" href="${href}">
+    <a class="card news-tile" href="${href}">
       <h3>${escapeHtml(article.title)}</h3>
       <div class="card-media card-media-fill">
         <img src="${article.image}" alt="${escapeHtml(article.title)}">

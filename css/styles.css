@@ -283,6 +283,44 @@ body:has(.project-hero) .site-header {
 .archive-grid {
   padding-bottom: 5rem;
 }
+#news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem 1.4rem;
+  align-items: stretch;
+}
+.news-tile {
+  display: grid;
+  grid-template-rows: 2.56rem auto auto auto;
+  row-gap: 0.75rem;
+  min-width: 0;
+  height: 100%;
+}
+.news-tile h3 {
+  margin: 0;
+  font-size: 1.28rem;
+  line-height: 1.28;
+  max-width: none;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.news-tile .card-media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin: 0;
+}
+.news-tile .card-media img {
+  object-fit: cover;
+  object-position: top center;
+}
+.news-tile .card-meta,
+.news-tile .card-loc {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .further-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -475,22 +513,6 @@ body:has(.project-hero) .site-header {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2.6rem 2rem;
-}
-.news-card h3 {
-  font-size: clamp(1.45rem, 2.2vw, 1.9rem);
-  margin: 0 0 1.1rem;
-  max-width: 22ch;
-}
-.news-card p {
-  margin: 0 0 0.95rem;
-  color: var(--muted);
-}
-.news-card .news-kicker,
-.news-card .news-dateline { color: inherit; }
-.news-card .news-kicker { color: var(--copper); }
-.news-card .news-dateline { color: var(--muted); }
-.news-card .news-clip {
-  margin: 0 0 1.2rem;
 }
 .news-clip-wide img { max-height: 22rem; }
 .news-clip-portrait img { max-height: 34rem; }
@@ -870,6 +892,7 @@ body:has(.project-hero) .site-header {
   .news-lead,
   .news-index-grid { grid-template-columns: 1fr; }
   .archive-grid { grid-template-columns: 1fr 1fr; }
+  #news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .section-head { flex-direction: column; align-items: flex-start; }
   .news-clip img,
   .news-clip-wide img,
@@ -893,6 +916,7 @@ body:has(.project-hero) .site-header {
     gap: 0.9rem;
   }
   .site-nav.is-open { display: flex; }
-  .archive-grid { grid-template-columns: 1fr; }
+  .archive-grid,
+  #news-grid { grid-template-columns: 1fr; }
   .hero-copy { padding-top: 3rem; padding-bottom: 2.6rem; }
 }
