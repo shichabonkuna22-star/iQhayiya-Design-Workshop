@@ -1,5 +1,5 @@
 import { mountChrome, escapeHtml } from "./nav.js?v=meet60";
-import { getProject } from "./projects.js?v=meet66";
+import { getProject } from "./projects.js?v=meet68";
 
 mountChrome("work");
 
