@@ -1,4 +1,4 @@
-import { mountChrome, escapeHtml } from "./nav.js?v=meet69";
+import { mountChrome, escapeHtml } from "./nav.js?v=meet70";
 import { getProject } from "./projects.js?v=meet68";
 
 mountChrome("work");
