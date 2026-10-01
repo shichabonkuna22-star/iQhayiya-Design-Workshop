@@ -1,6 +1,6 @@
-import { mountChrome } from "./nav.js?v=meet60";
+import { mountChrome } from "./nav.js?v=meet69";
 
-mountChrome("practice");
+mountChrome("contact");
 
 const form = document.getElementById("contact-form");
 const status = document.getElementById("form-status");

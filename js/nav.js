@@ -14,10 +14,10 @@ const HEADER = `
       <nav id="site-nav" class="site-nav" aria-label="Primary">
         <a href="index.html" data-nav="home">Home</a>
         <a href="work.html" data-nav="work">Projects</a>
-        <a href="practice.html" data-nav="practice">Practice</a>
+        <a href="about.html" data-nav="about">About</a>
         <a href="news.html" data-nav="news">News</a>
         <a href="join.html" data-nav="join">Join</a>
-        <a href="practice.html#contact" data-nav="contact">Contact</a>
+        <a href="practice.html" data-nav="contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -44,10 +44,10 @@ const FOOTER = `
         <p>
           <a href="index.html">Home</a><br>
           <a href="work.html">Projects</a><br>
-          <a href="practice.html">Practice</a><br>
+          <a href="about.html">About</a><br>
           <a href="news.html">News</a><br>
           <a href="join.html">Join</a><br>
-          <a href="practice.html#contact">Contact</a>
+          <a href="practice.html">Contact</a>
         </p>
       </div>
     </div>
